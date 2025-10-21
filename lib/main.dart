@@ -73,11 +73,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 case 'vip':
                   controller.addOrder(OrderType.vip);
                   break;
+                case 'add_bot':
+                  controller.addBot();
+                  break;
+                case 'del_bot':
+                  controller.removeLatestBot();
+                  break;
               }
             },
             itemBuilder: (context) => [
               PopupMenuItem(value: 'vip', child: Text('New VIP Order')),
               PopupMenuItem(value: 'normal', child: Text('New Normal Order')),
+              PopupMenuItem(value: 'add_bot', child: Text('+ Bot')),
+              PopupMenuItem(value: 'del_bot', child: Text('- Bot')),
             ],
             icon: Icon(Icons.more_vert),
           ),

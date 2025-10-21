@@ -136,4 +136,18 @@ class Controller extends ChangeNotifier {
     notifyListeners();
     _assignBotToPendingOrders();
   }
+
+  void removeLatestBot() {
+    if (_bots.isEmpty) return; // Ignore if empty
+    final bot = _bots.last;
+    if (bot.order != null) {
+      // Stop the timer & unpair the bot and the order
+      final order = bot.order!;
+      _tasks.remove(bot)?.cancel();
+      bot.order = null;
+      order.bot = null;
+    }
+    _bots.remove(bot);
+    notifyListeners();
+  }
 }
