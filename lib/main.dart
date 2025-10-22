@@ -100,9 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             TabBar(
               indicatorSize: TabBarIndicatorSize.tab,
               dividerHeight: 0,
-              tabs: OrderStatus.values
-                  .map((status) => Tab(text: status.name.toUpperCase()))
-                  .toList(),
+              tabs: OrderStatus.values.map((status) => Tab(text: status.name.toUpperCase())).toList(),
             ),
             Expanded(
               child: TabBarView(
@@ -133,11 +131,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.addBot,
-        tooltip: 'Add Bot',
-        child: const Icon(Icons.add),
       ),
     );
   }
